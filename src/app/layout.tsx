@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Comfortaa } from "next/font/google";
 import "./globals.css";
 
@@ -18,6 +18,13 @@ export const metadata: Metadata = {
     description: "Fleet operations, built for the road.",
     type: "website",
   },
+};
+
+// Explicit viewport so mobile browsers don't render at desktop width.
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#10283B",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

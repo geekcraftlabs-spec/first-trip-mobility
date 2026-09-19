@@ -22,13 +22,13 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative min-h-screen flex items-center overflow-hidden bg-navy border-b-[3px] border-spark"
+      className="relative min-h-dvh flex items-center overflow-hidden bg-navy border-b-[3px] border-spark"
     >
       {/* Ambient glows */}
       <div className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[900px] h-[900px] rounded-full bg-coral/10 blur-[140px]" />
       <div className="pointer-events-none absolute bottom-0 right-0 w-[600px] h-[600px] rounded-full bg-spark/5 blur-[120px]" />
 
-      {/* Decorative route line — safe to keep animated since it's purely visual */}
+      {/* Decorative route line — only rendered after mount, purely visual */}
       {mounted && (
         <motion.svg
           initial="hidden"

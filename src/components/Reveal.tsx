@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "motion/react";
-import type { ReactNode } from "react";
+import { motion, useInView } from "motion/react";
+import { useRef, type ReactNode } from "react";
 import { useMounted } from "@/lib/useMounted";
 
 export function Reveal({
@@ -14,16 +14,39 @@ export function Reveal({
   className?: string;
 }) {
   const mounted = useMounted();
+  const ref = useRef<HTMLDivElement>(null);
+
+  // useInView is more reliable than the `viewport` prop on mobile.
+  // `amount: 0.1` = trigger when 10% of the element is visible.
+  // The negative bottom margin fires the animation slightly before the
+  // element fully enters the viewport, preventing pop-in.
+  const isInView = useInView(ref, {
+    once: true,
+    amount: 0.1,
+    margin: "0px 0px -50px 0px",
+  });
+
+  // SSR + first client render: plain visible div, no animation.
+  // This is the bulletproof path — if JS never arrives, content is visible.
+  if (!mounted) {
+    return (
+      <div ref={ref} className={className}>
+        {children}
+      </div>
+    );
+  }
 
   return (
     <motion.div
-      // Server renders with initial={false} → element is visible in HTML.
-      // After hydration, motion takes over and animates in from hidden.
-      // If JS never arrives, content stays visible.
-      initial={mounted ? { opacity: 0, y: 24 } : false}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] }}
+      ref={ref}
+      initial={{ opacity: 0, y: 16 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
+      transition={{
+        duration: 0.5,
+        delay,
+        ease: [0.22, 1, 0.36, 1],
+      }}
+      style={{ willChange: "opacity, transform" }}
       className={className}
     >
       {children}

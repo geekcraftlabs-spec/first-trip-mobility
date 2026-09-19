@@ -16,11 +16,14 @@
 html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
   background-color: var(--color-sand);
   color: var(--color-ink);
+  /* Prevent mobile pull-to-refresh from interrupting scroll animations */
+  overscroll-behavior-y: none;
 }
 
 ::selection {
@@ -34,6 +37,25 @@ body {
 ::-webkit-scrollbar-thumb { background: #C9C1AD; border-radius: 999px; }
 ::-webkit-scrollbar-thumb:hover { background: #A89F88; }
 
+/* ---------- Mobile performance hardening ---------- */
+
+/* Force GPU compositing on animated reveal elements.
+   Prevents mobile browsers from culling off-screen animated content. */
+.motion-safe {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: opacity, transform;
+}
+
+/* Tell the browser to render off-screen sections lazily but preserve
+   their layout height — prevents scroll jumps on mobile as sections
+   come into view. */
+.section-lazy {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 600px;
+}
+
+/* Respect users who don't want motion */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after {

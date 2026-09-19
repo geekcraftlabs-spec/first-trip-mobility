@@ -20,16 +20,22 @@ export const metadata: Metadata = {
   },
 };
 
-// Explicit viewport so mobile browsers don't render at desktop width.
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   themeColor: "#10283B",
 };
 
+// Runs before first paint. Adds a `js` class to <html> so CSS can hide
+// reveal elements only when JS is actually available. No JS = no hide.
+const JS_CLASS_SCRIPT = `document.documentElement.classList.add('js');`;
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={comfortaa.variable} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: JS_CLASS_SCRIPT }} />
+      </head>
       <body className="font-sans antialiased bg-sand text-ink">
         {children}
       </body>

@@ -22,7 +22,7 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative min-h-dvh flex items-center overflow-hidden bg-navy border-b-[3px] border-spark"
+      className="relative min-h-svh flex items-center overflow-hidden bg-navy border-b-[3px] border-spark"
     >
       {/* Ambient glows */}
       <div className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[900px] h-[900px] rounded-full bg-coral/10 blur-[140px]" />

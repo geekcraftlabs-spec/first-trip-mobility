@@ -23,16 +23,16 @@ export function Contact() {
 
               <div className="mt-10 flex flex-wrap gap-4">
                 <a
-                  href="mailto:hello@firsttripmobility.co.za"
+                  href="mailto:info@firsttrip.co.za"
                   className="inline-flex items-center gap-2 rounded-full bg-coral px-7 py-4 font-semibold text-white hover:bg-coral/90 transition-colors"
                 >
-                  hello@firsttripmobility.co.za
+                  info@firsttrip.co.za
                 </a>
                 <a
-                  href="tel:+27000000000"
+                  href="tel:+27710518506"
                   className="inline-flex items-center gap-2 rounded-full border border-sand/25 px-7 py-4 font-semibold text-sand hover:bg-sand/10 transition-colors"
                 >
-                  Call us
+                  +27 71 051 8506
                 </a>
               </div>
             </div>

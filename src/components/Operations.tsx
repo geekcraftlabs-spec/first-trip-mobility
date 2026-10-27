@@ -1,12 +1,10 @@
-"use client";
-
 import { Reveal } from "./Reveal";
 
 const PILLARS = [
   {
     n: "01",
     title: "Sourcing",
-    body: "We find, vet and onboard drivers who treat the road like a profession — not a side hustle.",
+    body: "We find, vet and onboard drivers who treat the road like a profession.",
   },
   {
     n: "02",
@@ -16,7 +14,7 @@ const PILLARS = [
   {
     n: "03",
     title: "Scale",
-    body: "From two cars to two hundred, the operational discipline stays identical.",
+    body: "Whether we have two cars or one thousand, the operational discipline will remain identical.",
   },
 ];
 
@@ -40,7 +38,7 @@ export function Operations() {
             {PILLARS.map((p, i) => {
               const isLast = i === PILLARS.length - 1;
               return (
-                <Reveal key={p.n} delay={i * 0.1}>
+                <Reveal key={p.n}>
                   <div className="relative lg:pl-16">
                     <span
                       className={`hidden lg:block absolute left-0 top-3 w-3 h-3 rounded-full -translate-x-1/2 ${

@@ -1,12 +1,22 @@
-"use client";
-
 import { Reveal } from "./Reveal";
 
 const STANDARDS = [
-  { title: "Uptime",       body: "Vehicles are serviced, tracked and road-ready before they're needed." },
-  { title: "Safety",       body: "Driver checks, vehicle checks and route reviews — every single shift." },
-  { title: "Transparency", body: "Clients see the same numbers we do. No surprises on the invoice." },
-  { title: "Response",     body: "When something changes on the road, we answer. Day or night." },
+  {
+    title: "Uptime",
+    body: "Every vehicle will be serviced, tracked and road-ready before it's needed.",
+  },
+  {
+    title: "Safety",
+    body: "Driver checks, vehicle checks and route reviews — every single shift.",
+  },
+  {
+    title: "Transparency",
+    body: "Clients see the same numbers we do. No surprises on the invoice.",
+  },
+  {
+    title: "Response",
+    body: "When something changes on the road, we answer. Day or night.",
+  },
 ];
 
 export function FleetStandard() {
@@ -22,16 +32,18 @@ export function FleetStandard() {
           <p className="text-spark text-[11px] uppercase tracking-[0.24em] font-bold">
             02 — The standard
           </p>
-          <h2 className="mt-5 max-w-3xl font-bold tracking-tight text-sand leading-[1.05] text-4xl lg:text-6xl">
-            What a fleet looks like when nothing is left to chance.
+          <h2 className="mt-5 max-w-3xl font-bold tracking-tight text-sand leading-[1.05] text-4xl lg:text-6xl text-balance">
+            What our fleet will look like when nothing is left to chance.
           </h2>
         </Reveal>
 
         <div className="mt-20 grid md:grid-cols-2 gap-x-16 gap-y-12">
-          {STANDARDS.map((s, i) => (
-            <Reveal key={s.title} delay={i * 0.08}>
+          {STANDARDS.map((s) => (
+            <Reveal key={s.title}>
               <div className="border-t border-sand/15 pt-6">
-                <h3 className="text-xl lg:text-2xl font-bold text-sand tracking-tight">{s.title}</h3>
+                <h3 className="text-xl lg:text-2xl font-bold text-sand tracking-tight">
+                  {s.title}
+                </h3>
                 <p className="mt-3 text-sand/65 leading-relaxed">{s.body}</p>
               </div>
             </Reveal>

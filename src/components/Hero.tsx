@@ -6,8 +6,6 @@ import { useMounted } from "@/lib/useMounted";
 export function Hero() {
   const mounted = useMounted();
 
-  // `false` on the server → content renders visible with no animation.
-  // After mount, motion switches to the animated variant.
   const fadeUp = (delay: number) =>
     mounted
       ? {
@@ -24,11 +22,9 @@ export function Hero() {
       id="top"
       className="relative min-h-svh flex items-center overflow-hidden bg-navy border-b-[3px] border-spark"
     >
-      {/* Ambient glows */}
       <div className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[900px] h-[900px] rounded-full bg-coral/10 blur-[140px]" />
       <div className="pointer-events-none absolute bottom-0 right-0 w-[600px] h-[600px] rounded-full bg-spark/5 blur-[120px]" />
 
-      {/* Decorative route line — only rendered after mount, purely visual */}
       {mounted && (
         <motion.svg
           initial="hidden"
@@ -69,8 +65,8 @@ export function Hero() {
           {...fadeUp(0.3)}
           className="mt-8 max-w-xl text-sand/70 text-lg leading-relaxed"
         >
-          First Trip Mobility runs and grows driver fleets across South Africa — built on
-          operational discipline from the ground up.
+          First Trip Mobility intends to run and grow the fleet across South Africa —
+          built on operational discipline from the ground up.
         </motion.p>
 
         <motion.div

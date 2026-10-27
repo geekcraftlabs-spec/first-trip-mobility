@@ -1,6 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
-"use client";
-
 import { Reveal } from "./Reveal";
 
 export function Contact() {
@@ -15,11 +12,13 @@ export function Contact() {
               <p className="text-spark text-[11px] uppercase tracking-[0.24em] font-bold">
                 04 — Get in touch
               </p>
-              <h2 className="mt-5 font-bold tracking-tight text-sand leading-[1.05] text-4xl lg:text-6xl">
+              <h2 className="mt-5 font-bold tracking-tight text-sand leading-[1.05] text-4xl lg:text-6xl text-balance">
                 Need drivers, vehicles, or both?
               </h2>
               <p className="mt-6 text-lg leading-relaxed text-sand/70">
-                Tell us what you're moving and where. We'll come back with a plan, a timeline and a number.
+                First Trip is starting in Johannesburg. Whether you need fleet capacity today
+                or are planning for the months ahead — tell us what you&rsquo;re moving and
+                where. We&rsquo;ll come back with a plan, a timeline and a number.
               </p>
 
               <div className="mt-10 flex flex-wrap gap-4">

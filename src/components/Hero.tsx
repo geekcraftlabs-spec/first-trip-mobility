@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 "use client";
 
 import { motion } from "motion/react";
@@ -22,8 +23,9 @@ export function Hero() {
       id="top"
       className="relative min-h-svh flex items-center overflow-hidden bg-navy border-b-[3px] border-spark"
     >
-      <div className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[900px] h-[900px] rounded-full bg-coral/10 blur-[140px]" />
-      <div className="pointer-events-none absolute bottom-0 right-0 w-[600px] h-[600px] rounded-full bg-spark/5 blur-[120px]" />
+      {/* Radial gradients replace heavy blurs for mobile GPU performance */}
+      <div className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[900px] h-[900px] rounded-full bg-[radial-gradient(circle,rgba(226,98,47,0.12)_0%,transparent_70%)]" />
+      <div className="pointer-events-none absolute bottom-0 right-0 w-[600px] h-[600px] rounded-full bg-[radial-gradient(circle,rgba(199,217,75,0.06)_0%,transparent_70%)]" />
 
       {mounted && (
         <motion.svg
@@ -46,45 +48,57 @@ export function Hero() {
         </motion.svg>
       )}
 
-      <div className="relative w-full max-w-6xl mx-auto px-6 lg:px-12 py-32">
+      <div className="relative w-full max-w-5xl mx-auto px-6 lg:px-12 py-32">
         <motion.p
           {...fadeUp(0.1)}
-          className="text-spark text-[11px] uppercase tracking-[0.24em] font-bold"
+          className="text-spark text-[11px] md:text-xs uppercase tracking-[0.24em] font-bold"
         >
-          Fleet operations, built for the road
+          Now Recruiting · Johannesburg
         </motion.p>
 
         <motion.h1
           {...fadeUp(0.15)}
-          className="mt-6 max-w-4xl font-bold text-sand leading-[0.95] tracking-tight text-5xl md:text-7xl lg:text-8xl"
+          className="mt-6 font-bold text-sand leading-[1.05] tracking-tight text-5xl md:text-7xl lg:text-8xl uppercase"
         >
-          Every trip starts with the right driver, in the right car, on&nbsp;time.
+          We need <br className="hidden md:block" />
+          drivers, &amp; you <br className="hidden md:block" />
+          <span className="text-spark">can be our <br className="hidden md:block" />driver.</span>
         </motion.h1>
 
         <motion.p
           {...fadeUp(0.3)}
-          className="mt-8 max-w-xl text-sand/70 text-lg leading-relaxed"
+          className="mt-8 max-w-2xl text-sand/70 text-lg md:text-xl leading-relaxed"
         >
-          First Trip Mobility intends to run and grow the fleet across South Africa —
-          built on operational discipline from the ground up.
+          Ready to earn on the road but don't have a car? First Trip gives you a well-kept vehicle, steady trips and a team that has your back from day one. Bring your licence and PrDP, and we'll help you with the rest.
         </motion.p>
 
         <motion.div
-          {...fadeUp(0.45)}
-          className="mt-10 flex flex-wrap items-center gap-6"
+          {...fadeUp(0.4)}
+          className="mt-8 flex flex-wrap gap-3"
+        >
+          {["Reliable vehicles", "Weekly earnings", "Real support"].map((tag) => (
+            <span
+              key={tag}
+              className="inline-flex items-center rounded-full border border-sand/30 px-5 py-2 text-sm font-medium text-sand/90"
+            >
+              {tag}
+            </span>
+          ))}
+        </motion.div>
+
+        <motion.div
+          {...fadeUp(0.5)}
+          className="mt-10 flex flex-col items-start gap-4"
         >
           <a
-            href="#contact"
-            className="inline-flex items-center gap-2 rounded-full bg-coral px-7 py-4 font-semibold text-white hover:bg-coral/90 transition-colors"
+            href="mailto:info@firsttrip.co.za"
+            className="inline-flex items-center justify-center rounded-full bg-coral px-8 py-4 font-semibold text-white hover:bg-coral/90 transition-colors text-lg"
           >
-            Get in touch <span aria-hidden>→</span>
+            info@firsttrip.co.za
           </a>
-          <a
-            href="#operations"
-            className="text-[11px] uppercase tracking-[0.2em] text-sand/60 hover:text-sand transition-colors"
-          >
-            See how we operate
-          </a>
+          <p className="text-sand/50 text-sm">
+            Send us your name, number and area. We'll call you back.
+          </p>
         </motion.div>
       </div>
     </section>

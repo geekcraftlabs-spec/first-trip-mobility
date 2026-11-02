@@ -1,34 +1,19 @@
 import { Reveal } from "./Reveal";
 
 const STANDARDS = [
-  {
-    title: "Uptime",
-    body: "Every vehicle will be serviced, tracked and road-ready before it's needed.",
-  },
-  {
-    title: "Safety",
-    body: "Driver checks, vehicle checks and route reviews — every single shift.",
-  },
-  {
-    title: "Transparency",
-    body: "Clients see the same numbers we do. No surprises on the invoice.",
-  },
-  {
-    title: "Response",
-    body: "When something changes on the road, we answer. Day or night.",
-  },
+  { title: "Uptime", body: "Every vehicle will be serviced, tracked and road-ready before it's needed." },
+  { title: "Safety", body: "Driver checks, vehicle checks and route reviews — every single shift." },
+  { title: "Transparency", body: "Clients see the same numbers we do. No surprises on the invoice." },
+  { title: "Response", body: "When something changes on the road, we answer. Day or night." },
 ];
 
 export function FleetStandard() {
   return (
-    <section
-      id="fleet"
-      className="scroll-mt-24 relative overflow-hidden bg-navy text-sand py-24 lg:py-36"
-    >
-      <div className="pointer-events-none absolute -bottom-40 -right-40 w-[600px] h-[600px] rounded-full bg-coral/10 blur-[120px]" />
+    <section id="fleet" className="scroll-mt-24 relative overflow-hidden bg-navy text-sand py-24 lg:py-36">
+      <div className="pointer-events-none absolute -bottom-40 -right-40 w-[600px] h-[600px] rounded-full bg-[radial-gradient(circle,rgba(226,98,47,0.1)_0%,transparent_70%)]" />
 
       <div className="relative max-w-6xl mx-auto px-6 lg:px-12">
-        <Reveal>
+        <Reveal delay={0.1}>
           <p className="text-spark text-[11px] uppercase tracking-[0.24em] font-bold">
             02 — The standard
           </p>
@@ -38,8 +23,8 @@ export function FleetStandard() {
         </Reveal>
 
         <div className="mt-20 grid md:grid-cols-2 gap-x-16 gap-y-12">
-          {STANDARDS.map((s) => (
-            <Reveal key={s.title}>
+          {STANDARDS.map((s, i) => (
+            <Reveal key={s.title} delay={0.2 + i * 0.1}>
               <div className="border-t border-sand/15 pt-6">
                 <h3 className="text-xl lg:text-2xl font-bold text-sand tracking-tight">
                   {s.title}

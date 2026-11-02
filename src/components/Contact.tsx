@@ -4,9 +4,9 @@ export function Contact() {
   return (
     <section id="contact" className="scroll-mt-24 bg-sand pb-24 lg:pb-36">
       <div className="max-w-6xl mx-auto px-6 lg:px-12">
-        <Reveal>
+        <Reveal delay={0.1}>
           <div className="relative overflow-hidden rounded-3xl bg-navy p-10 lg:p-20">
-            <div className="pointer-events-none absolute -top-32 left-1/3 w-[500px] h-[500px] rounded-full bg-coral/15 blur-[120px]" />
+            <div className="pointer-events-none absolute -top-32 left-1/3 w-[500px] h-[500px] rounded-full bg-[radial-gradient(circle,rgba(226,98,47,0.15)_0%,transparent_70%)]" />
 
             <div className="relative max-w-2xl">
               <p className="text-spark text-[11px] uppercase tracking-[0.24em] font-bold">

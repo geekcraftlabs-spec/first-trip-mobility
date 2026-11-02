@@ -34,9 +34,34 @@ body {
 ::-webkit-scrollbar-thumb { background: #C9C1AD; border-radius: 999px; }
 ::-webkit-scrollbar-thumb:hover { background: #A89F88; }
 
+/* 
+  Load-time animation. 
+  Everything animates ONCE when the page loads. 
+  Scrolling is 100% native — no observers, no white space, ever.
+*/
+@keyframes pageLoad {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.js .reveal {
+  animation: pageLoad 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: var(--reveal-delay, 0s);
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-
+  .js .reveal {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
